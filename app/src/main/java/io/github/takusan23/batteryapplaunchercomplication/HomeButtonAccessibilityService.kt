@@ -9,6 +9,7 @@ import android.content.IntentFilter
 import android.view.HapticFeedbackConstants
 import android.view.View
 import android.view.accessibility.AccessibilityEvent
+import androidx.core.content.ContextCompat
 
 /** ホームボタンを押すだけのユーザー補助サービス */
 class HomeButtonAccessibilityService : AccessibilityService() {
@@ -41,9 +42,9 @@ class HomeButtonAccessibilityService : AccessibilityService() {
 
     override fun onServiceConnected() {
         super.onServiceConnected()
-        registerReceiver(broadcastReceiver, IntentFilter().apply {
+        ContextCompat.registerReceiver(this, broadcastReceiver, IntentFilter().apply {
             addAction(DOWN_HOME_BUTTON)
-        })
+        }, ContextCompat.RECEIVER_EXPORTED)
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {

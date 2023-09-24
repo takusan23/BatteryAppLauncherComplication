@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace 'io.github.takusan23.batteryapplaunchercomplication'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "io.github.takusan23.batteryapplaunchercomplication"
         // Wear OS 3.x が SDK 30 みたい
         // Wear OS 2.x をサポートしたい場合は SDK 26 にする？
         minSdk 30
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -24,16 +24,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
 
     // コンプリケーションを作るライブラリ
-    implementation "androidx.wear.watchface:watchface-complications-data-source:1.2.0-alpha03"
-    implementation "androidx.wear.watchface:watchface-complications-data-source-ktx:1.2.0-alpha03"
+    implementation "androidx.wear.watchface:watchface-complications-data-source:1.2.0-beta02"
+    implementation "androidx.wear.watchface:watchface-complications-data-source-ktx:1.2.0-beta02"
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'com.google.android.gms:play-services-wearable:18.0.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'com.google.android.gms:play-services-wearable:18.1.0'
     implementation 'androidx.percentlayout:percentlayout:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
