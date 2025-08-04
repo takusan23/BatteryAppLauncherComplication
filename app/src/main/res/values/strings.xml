@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BatteryAppLauncherComplication</string>
+    <string name="accessibility_label">ホームボタンを押すユーザー補助サービス</string>
 </resources>
